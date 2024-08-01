@@ -1,0 +1,52 @@
+---
+title: "Install Packages"
+author: "Jordan Burton"
+date: "2024-08-01"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+## Setup
+Before diving into the course, we need to ensure that all required packages are installed and loaded. The following code chunk installs and loads the necessary libraries for our analysis.
+
+When you click the **Green Play Button** in the R code chunk, the code will run. This will take around 45 min and occassionally prompt to update packages. When prompted please select **Yes** or **All**.
+
+```{r Install Packages}
+# Install packages required for analysis
+install.packages("tidyverse")
+install.packages("scales")
+install.packages("stringr")
+install.packages("ggplot2")
+install.packages("gplots")
+install.packages("ggrepel")
+install.packages("corrplot")
+install.packages("VennDiagram")
+install.packages('hrbrthemes')
+install.packages("reshape2")
+install.packages("Rtsne")
+install.packages("RColorBrewer")
+install.packages("ggpubr")
+install.packages("pheatmap")
+
+# Install BiocManager and Related Packages
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("limma")
+BiocManager::install("clusterProfiler")
+BiocManager::install("org.Hs.eg.db") # human GO database
+BiocManager::install("org.Mm.eg.db") # mouse GO database
+BiocManager::install("pRoloc")
+BiocManager::install("pRolocdata")
+BiocManager::install("WGCNA")
+BiocManager::install("piano")
+```
