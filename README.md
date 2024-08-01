@@ -16,6 +16,8 @@ RStudio is an integrated development environment (IDE) for R and Python. It incl
 
 [RStudio IDE User Guide](https://docs.posit.co/ide/user/)<br>
 
+### Install Packages Required for this Course
+
 ## Session 1: Quality Control Assessment
 
 
