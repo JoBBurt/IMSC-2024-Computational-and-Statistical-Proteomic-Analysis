@@ -27,6 +27,11 @@ Download and run the [Install Packages](https://github.com/JoBBurt/IMSC-2024-Com
 
 ## Session 3: Gene Ontology and Network Analysis
 
+
+## Useful Resources
+[Building a Bioinformaticist by David Tabb, PhD](https://pickingupthetabb.wordpress.com/building-a-bioinformaticist/free-online-training-in-bioinformatics-and-biostatistics/)<br>
+[Analysis of Proteomics Data by Brett Phinney, PhD](https://www.youtube.com/@UCDavisProteomics)<br>
+
 ## Licensing
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)<br>
