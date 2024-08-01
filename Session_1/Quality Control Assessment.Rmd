@@ -1,0 +1,178 @@
+---
+title: "Quality Control Assessment"
+author: "Jordan Burton"
+date: "2024-08-01"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r Load Packages}
+# Load libraries required for analysis
+library(tidyverse)
+library(scales)
+library(stringr)
+library(ggplot2)
+library(gplots)
+library(ggrepel)
+library(corrplot)
+library(VennDiagram)
+library(hrbrthemes)
+
+theme_set(theme_bw(base_size = 18))
+```
+
+## Quality Assessment
+### Prepare Protein Data for Analysis
+The first step in quality assessment is to load and prepare the protein data. We start by reading the data from a CSV file and rearranging the columns for easier access.
+
+```{r Load protein data from spectronaut}
+protein <- read.csv("data/2022_0513_SSL2_ND_InjvsNon_120min_Spec16_Library_v01_Report_Protein_Quant_Pivot.csv",
+                    stringsAsFactors = FALSE)
+
+# Rearrange Protein Column Order
+pro_colorder <- c("PG.Genes", "PG.ProteinDescriptions","PG.Qvalue",
+              "PG.ProteinNames",
+              "PG.UniProtIds", "PG.BiologicalProcess",
+              "PG.CellularComponent", "PG.MolecularFunction", names(protein[,9:ncol(protein)]))
+protein <- protein[,pro_colorder]
+print(head(protein))
+nrow(protein)
+```
+
+Next, we prepare a matrix of protein quantities for analysis. This involves selecting relevant columns, renaming them for simplicity, and setting the row names to gene names.
+```{r Prepare a matrix of the protein data for analysis}
+protein_mat <- data.matrix(dplyr::select(protein, contains(c("PG.Quantity"))))
+
+# Rename columns in protein data matrix to simplify names for plotting
+colnames(protein_mat)
+names <- c("NON_23", "INJ_27", "NON_24", "INJ_28", "NON_25", "NON_26", "INJ_30", "INJ_29")
+colnames(protein_mat) <- names
+
+# Rename rows in protein data matrix to gene names
+rownames(protein_mat) <- protein$PG.Genes
+
+# Inspect the matrix
+summary(protein_mat)
+```
+
+### Inspect Protein Data Search Results
+To better understand the data, we set up a treatment factor for later plots and generate bar and box plots to visualize protein intensities.
+```{r Set up a treatment factor to be used in later plots}
+treatment <- c("NON", "INJ", "NON", "INJ", "NON", "NON", "INJ", "INJ")
+treatment <- factor(treatment)
+```
+
+```{r Bar and Box plots of protein intensitites}
+par(mfrow=c(1,2))
+barplot(colSums(protein_mat, na.rm = TRUE)/1E6, las =2, main = "Total Protein Intensities",
+        ylab = "Total AUC (x10^6)", ylim = c(0,10))
+
+boxplot(log2(protein_mat), main = "Protein Intensities", las = 2,
+        ylab = "log2(Intensity)")
+```
+
+A rank vs. abundance plot helps visualize the distribution of protein abundances in the dataset.
+
+```{r Rank vs. Abundance Plots}
+data.frame(Proteins = protein$PG.Genes,
+           mean = rowMeans(protein_mat)) %>%
+  ggplot(aes(x=rank(reorder(Proteins, -mean)), y = log10(mean))) +
+    geom_point(alpha = 1, position = "jitter", size = 3) +
+    xlab('Protein Rank') + ylab('Abundance (log10)') +
+    ggtitle("Rank vs. Abundance")
+```
+
+Calculating the coefficient of variation (CV) helps assess the variability of protein abundances between different treatment groups.
+
+```{r Coefficient of Variation}
+# Extract NON and INJ columns
+non_columns <- protein_mat[,grepl("NON", colnames(protein_mat))]
+inj_columns <- protein_mat[,grepl("INJ", colnames(protein_mat))]
+
+# Calculate mean and standard deviation for NON group
+non_means <- rowMeans(non_columns)
+non_std_devs <- apply(non_columns, 1, sd)
+
+# Calculate mean and standard deviation for INJ group
+inj_means <- rowMeans(inj_columns)
+inj_std_devs <- apply(inj_columns, 1, sd)
+
+# Calculate Coefficient of Variation for NON and INJ groups
+non_cv <- non_std_devs / non_means
+inj_cv <- inj_std_devs / inj_means
+
+# Calculate medians for each group
+median_non_cv <- median(non_cv, na.rm = TRUE)
+median_inj_cv <- median(inj_cv, na.rm = TRUE)
+
+# Create a combined data frame for CV values
+cv_combined <- data.frame(
+  Protein = rep(rownames(protein_mat), 2),
+  CV = c(non_cv, inj_cv),
+  Group = rep(c("NON", "INJ"), each = length(non_cv))
+)
+
+# Print the combined data frame to verify
+# print(head(cv_combined))
+
+# Plot the frequency of CV values for both groups
+ggplot(cv_combined, aes(x = CV, fill = Group)) +
+  geom_histogram(position = "identity", alpha = 0.5, bins = 30) +
+  labs(title = "Frequency of Coefficient of Variation (CV)",
+       x = "Coefficient of Variation (CV)",
+       y = "Frequency") +
+  scale_fill_manual(values = c("NON" = "blue", "INJ" = "red")) +
+  geom_vline(aes(xintercept = median_non_cv), color = "blue",
+            linetype = "dashed", linewidth = 1) +
+  geom_vline(aes(xintercept = median_inj_cv), color = "red",
+            linetype = "dashed", linewidth = 1)
+```
+
+Normalization is commonly used in preprocessing before comparing protein abundances across samples. There are many normalization strategies and experimental design can dictate which normalization strategy is used. In this example, we normalize the data using median protein abundance.
+
+```{r Normalize median protein abundance}
+meds<-apply(protein_mat, 2, median, na.rm = TRUE)
+nMat <- sweep(protein_mat, 2, meds/mean(meds), FUN='/')
+boxplot(log2(nMat), main = "Normalized Protein Intensities", las = 2,
+        ylab = "log2(Intensity)")
+```
+
+Principal Component Analysis (PCA) is a dimensionality reduction technique that helps visualize the variation in the dataset.
+
+```{r Principal Component Analysis}
+# Set up PCA dataframe
+pcMat<-nMat
+pcMat<-pcMat[complete.cases(pcMat),]
+pcMat[pcMat == 0] <-1
+pcRes<-prcomp(t(log2(pcMat)), center = TRUE, scale. = TRUE)
+pcSum <- summary(pcRes)
+PC1label <- paste0("PC1, ",
+                  round(100 * pcSum$importance["Proportion of Variance", "PC1"],1),
+                  "% of variance")
+PC2label <- paste0("PC2, ",
+                  round(100 * pcSum$importance["Proportion of Variance", "PC2"],1),
+                  "% of variance")
+
+pcPlotFrame<-data.frame(treatment = treatment,
+                          sample = colnames(nMat),
+                          pcRes$x[,1:5])
+
+# PCA Plot
+pcPlotFrame %>%
+  ggplot(aes(PC1, PC2,  color = treatment, shape = treatment, label = treatment))+ #label = sample
+  geom_point(size=1.8) +
+  scale_x_continuous(name=PC1label) +
+  scale_y_continuous(name=PC2label) +
+  theme(legend.position = 'right') +
+  stat_ellipse(aes(color = paste0(treatment)))
+```
+
+Heatmaps are a powerful way to visualize the expression levels of proteins across different samples. They use color gradients to represent the magnitude of protein abundance, making it easy to identify patterns of expression.
+
+```{r Heatmap of Protein Abundances}
+myRamp<-colorRampPalette(colors=c("#0571b0", "#92c5de", "#f7f7f7", "#f4a582", "#ca0020"))
+heatmap.2(t(scale(t(log10(pcMat)))), col = myRamp, trace = 'none', labRow = FALSE)
+```
