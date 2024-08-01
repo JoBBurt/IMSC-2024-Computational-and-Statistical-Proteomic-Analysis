@@ -30,6 +30,7 @@ Download and run the [Install Packages](https://github.com/JoBBurt/IMSC-2024-Com
 
 ## Useful Resources
 [Building a Bioinformaticist by David Tabb, PhD](https://pickingupthetabb.wordpress.com/building-a-bioinformaticist/free-online-training-in-bioinformatics-and-biostatistics/)<br>
+[May Institute: Computation and Statistics for Mass Spectrometry and Proteomics by Olga Vitek, PhD](https://www.youtube.com/@MayInstituteNEU)<br>
 [Analysis of Proteomics Data by Brett Phinney, PhD](https://www.youtube.com/@UCDavisProteomics)<br>
 
 ## Licensing
