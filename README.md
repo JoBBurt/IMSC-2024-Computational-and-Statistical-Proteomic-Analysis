@@ -1,6 +1,8 @@
 # IMSC 2024 Short Course: Computational and Statistical Proteomic Analysis
 The growth of biological MS deepens the need to understand computation and statistics; these skills are essential for the interpretation of proteomic studies. Designed for mass spectrometrists at an intermediate level, this course incorporates real-world use cases for the computational tools used to identify and quantify proteins/peptides. This tutorial will emphasize the design of well-powered studies, the conceptional frameworks associated with the identification of peptides and PTMs, and the detection and quantitation of biological differences. Participants will be introduced to methods for visualising and interpreting datasets, including statistical techniques using common bioinformatics tools such as the R statistical environment. At the conclusion of this course participants should have a working understanding of the key considerations associated with computational analysis of proteomic datasets.
 
+Proteomics plays a crucial role in understanding cellular processes and disease mechanisms. Analyzing proteomic data involves several key steps, including data preprocessing, quality assessment, normalization, statistical testing, and visualization. This GitHub Repository provides a comprehensive guide to these steps, demonstrating how to handle and interpret proteomic datasets using R.
+
 ## Session 0: Installing R and R Studio
 RStudio is an integrated development environment (IDE) for R and Python. It includes a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging, and workspace management. RStudio is available in open source and commercial editions and runs on the desktop (Windows, Mac, and Linux).
 
@@ -20,7 +22,7 @@ RStudio is an integrated development environment (IDE) for R and Python. It incl
 Download and run the [Install Packages](https://github.com/JoBBurt/IMSC-2024-Computational-and-Statistical-Proteomic-Analysis/blob/main/Session_0/Install%20Packages.Rmd) markdown file. Please note that this takes about 45 minutes to run on an M1 MacBook Air and requires active user input to complete.
 
 ## Session 1: Quality Control Assessment
-We will be using data from the paper ["Substantial downregulation of mitochondrial and peroxisomal proteins during acute kidney injury revealed by data-independent acquisition proteomics"](https://doi.org/10.1002/pmic.202300162) to demonstrate the initial quality control (QC) assessment of proteomics data.
+In this session, we will explore quality control (QC) assessment for proteomic data. We will be using data from the paper ["Substantial downregulation of mitochondrial and peroxisomal proteins during acute kidney injury revealed by data-independent acquisition proteomics"](https://doi.org/10.1002/pmic.202300162).
 
 ![image](https://github.com/user-attachments/assets/830b6e0b-5ccd-44a7-83df-2930dec926d4)
 
