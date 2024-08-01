@@ -10,7 +10,9 @@ RStudio is an integrated development environment (IDE) for R and Python. It incl
 [Download R for Windows](https://cran.rstudio.com/bin/windows/)<br>
 
 ### Install RStudio
-[Download RStudio Desktop](https://posit.co/download/rstudio-desktop/)
+[Download RStudio Desktop for Linux](https://posit.co/download/rstudio-desktop/)<br>
+[Download RStudio Desktop for macOS](https://download1.rstudio.org/electron/macos/RStudio-2024.04.2-764.dmg)<br>
+[Download RStudio Desktop for Windows](https://download1.rstudio.org/electron/windows/RStudio-2024.04.2-764.exe)<br>
 
 ## Session 1: Quality Control Assessment
 
