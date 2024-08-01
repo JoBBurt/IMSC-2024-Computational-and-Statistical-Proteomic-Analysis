@@ -5,9 +5,9 @@ The growth of biological MS deepens the need to understand computation and stati
 RStudio is an integrated development environment (IDE) for R and Python. It includes a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging, and workspace management. RStudio is available in open source and commercial editions and runs on the desktop (Windows, Mac, and Linux).
 
 ### Download and Install R
-[Download R for Linux](https://cran.rstudio.com/bin/linux/)
-[Download R for macOS](https://cran.rstudio.com/bin/macosx/)
-[Download R for Windows](https://cran.rstudio.com/bin/windows/)
+[Download R for Linux](https://cran.rstudio.com/bin/linux/)<br>
+[Download R for macOS](https://cran.rstudio.com/bin/macosx/)<br>
+[Download R for Windows](https://cran.rstudio.com/bin/windows/)<br>
 
 ### Install RStudio
 [Download RStudio Desktop](https://posit.co/download/rstudio-desktop/)
