@@ -17,7 +17,7 @@ RStudio is an integrated development environment (IDE) for R and Python. It incl
 [RStudio IDE User Guide](https://docs.posit.co/ide/user/)<br>
 
 ### Install Packages Required for this Course
-Download and run the [Install Packages]([/Session_0/Install Packages.Rmd](https://github.com/JoBBurt/IMSC-2024-Computational-and-Statistical-Proteomic-Analysis/blob/main/Session_0/Install%20Packages.Rmd) markdown file. Please note that this takes about 45 minutes to run on an M1 MacBook Air and requires active user input to complete.
+Download and run the [Install Packages](https://github.com/JoBBurt/IMSC-2024-Computational-and-Statistical-Proteomic-Analysis/blob/main/Session_0/Install%20Packages.Rmd) markdown file. Please note that this takes about 45 minutes to run on an M1 MacBook Air and requires active user input to complete.
 
 ## Session 1: Quality Control Assessment
 
