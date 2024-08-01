@@ -22,7 +22,7 @@ RStudio is an integrated development environment (IDE) for R and Python. It incl
 Download and run the [Install Packages](https://github.com/JoBBurt/IMSC-2024-Computational-and-Statistical-Proteomic-Analysis/blob/main/Session_0/Install%20Packages.Rmd) markdown file. Please note that this takes about 45 minutes to run on an M1 MacBook Air and requires active user input to complete.
 
 ## Session 1: Quality Control Assessment
-In this session, we will explore quality control (QC) assessment for proteomic data. We will be using data from the paper ["Substantial downregulation of mitochondrial and peroxisomal proteins during acute kidney injury revealed by data-independent acquisition proteomics"](https://doi.org/10.1002/pmic.202300162).
+In this session, we will explore [quality control (QC) assessment](https://github.com/JoBBurt/IMSC-2024-Computational-and-Statistical-Proteomic-Analysis/blob/main/Session_1/Quality%20Control%20Assessment.Rmd) for proteomic data. We will be using data from the paper ["Substantial downregulation of mitochondrial and peroxisomal proteins during acute kidney injury revealed by data-independent acquisition proteomics"](https://doi.org/10.1002/pmic.202300162).
 
 ![image](https://github.com/user-attachments/assets/830b6e0b-5ccd-44a7-83df-2930dec926d4)
 
