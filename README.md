@@ -27,17 +27,23 @@ In this session, we will explore [quality control (QC) assessment](https://githu
 ![image](https://github.com/user-attachments/assets/830b6e0b-5ccd-44a7-83df-2930dec926d4)
 
 
-## Session 2: Comparative Analysis of Proteomic Data
+## Session 2: Comparative Analysis of Proteomic Data for Biological Insights
+In this session, we will explore [comparative analysis, gene ontology (GO) pathway enrichment, and localization of organellar proteins](https://github.com/JoBBurt/IMSC-2024-Computational-and-Statistical-Proteomic-Analysis/blob/main/Session_2/Comparative%20Analysis%20and%20Gene%20Ontology%20of%20Proteomic%20Data.Rmd) of proteomic data from APOE3 microglia and neuronal cell lysates.
+
+## Session 3: MSStats Modeling of Cohort vs Cohort
+
+<img width="908" alt="image" src="https://github.com/user-attachments/assets/475a503b-fb14-4be7-ac70-efdd9d0ca9df">
 
 
-## Session 3: Gene Ontology and Network Analysis
+
+## Session 4: Weighted Gene Associated Network Analysis and Gene Set Analysis
 
 
 ## Useful Resources
 [Building a Bioinformaticist by David Tabb, PhD](https://pickingupthetabb.wordpress.com/building-a-bioinformaticist/free-online-training-in-bioinformatics-and-biostatistics/)<br>
-[May Institute: Computation and Statistics for Mass Spectrometry and Proteomics by Olga Vitek, PhD](https://www.youtube.com/@MayInstituteNEU)<br>
+[May Institute: Computation and Statistics for Mass Spectrometry and Proteomics using MSStats by Olga Vitek, PhD](https://www.youtube.com/@MayInstituteNEU)<br>
 [Analysis of Proteomics Data by Brett Phinney, PhD](https://www.youtube.com/@UCDavisProteomics)<br>
-
+[Proteomics Education, Tools, and Applications by Philip Wilmarth, PhD](https://github.com/pwilmart)<br>
 ## Licensing
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)<br>
