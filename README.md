@@ -32,7 +32,10 @@ In this session, we will explore [comparative analysis, gene ontology (GO) pathw
 
 ## Session 3: MSstats Modeling of Cohort vs Cohort
 
-<img width="908" alt="image" src="https://github.com/user-attachments/assets/475a503b-fb14-4be7-ac70-efdd9d0ca9df">
+<img width="850" alt="image" src="https://github.com/user-attachments/assets/8f98d576-9a81-47ff-8270-f4a0cbf74511">
+
+
+<img width="850" alt="image" src="https://github.com/user-attachments/assets/475a503b-fb14-4be7-ac70-efdd9d0ca9df">
 
 
 
