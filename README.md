@@ -30,7 +30,7 @@ In this session, we will explore [quality control (QC) assessment](https://githu
 ## Session 2: Comparative Analysis of Proteomic Data for Biological Insights
 In this session, we will explore [comparative analysis, gene ontology (GO) pathway enrichment, and localization of organellar proteins](https://github.com/JoBBurt/IMSC-2024-Computational-and-Statistical-Proteomic-Analysis/blob/main/Session_2/Comparative%20Analysis%20and%20Gene%20Ontology%20of%20Proteomic%20Data.Rmd) of proteomic data from APOE3 microglia and neuronal cell lysates.
 
-## Session 3: MSStats Modeling of Cohort vs Cohort
+## Session 3: MSstats Modeling of Cohort vs Cohort
 
 <img width="908" alt="image" src="https://github.com/user-attachments/assets/475a503b-fb14-4be7-ac70-efdd9d0ca9df">
 
@@ -41,7 +41,7 @@ In this session, we will explore [comparative analysis, gene ontology (GO) pathw
 
 ## Useful Resources
 [Building a Bioinformaticist by David Tabb, PhD](https://pickingupthetabb.wordpress.com/building-a-bioinformaticist/free-online-training-in-bioinformatics-and-biostatistics/)<br>
-[May Institute: Computation and Statistics for Mass Spectrometry and Proteomics using MSStats by Olga Vitek, PhD](https://www.youtube.com/@MayInstituteNEU)<br>
+[May Institute: Computation and Statistics for Mass Spectrometry and Proteomics using MSstats by Olga Vitek, PhD](https://www.youtube.com/@MayInstituteNEU)<br>
 [Analysis of Proteomics Data by Brett Phinney, PhD](https://www.youtube.com/@UCDavisProteomics)<br>
 [Proteomics Education, Tools, and Applications by Philip Wilmarth, PhD](https://github.com/pwilmart)<br>
 ## Licensing
